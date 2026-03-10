@@ -1,7 +1,7 @@
 This is the repository to run the focus group digital twins simulator developed by the TeCD-Lab at UCR. For questions about this directory, please write to Kevin Esterling, kevin.esterling@ucr.edu
 
 
-TO RUN THIS REPOSITORY, download the full zip file and run the script locally on your machine. The download will include two subdirectories (one to store results, and one with the API keys) that are necessary for the Python scripts to run.
+TO RUN THIS REPOSITORY, download the full zip file and run the script locally on your machine. The download will include two subdirectories (one to store results, and one that holds the files where you will store your API keys) that are necessary for the Python scripts to run.
 
 You must enter your Gemini API key as a single line in the file secretge.txt, and your Groq API key as a single line in the file secretgr.txt. Both of these files are located in the MyPersonalKeyAPI directory.
 
