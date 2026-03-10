@@ -6,7 +6,6 @@ TO RUN THIS REPOSITORY, download the full zip file, unpack it, and run the scrip
 - GooglegeminiCache (which caches the Gemini responses)
 - GroqllmCache (which stores the Groq model caches)
 - Results (which stores the simulation results for each run)
-- 
 
 You must enter your Gemini API key as a single line in the file secretge.txt, and your Groq API key as a single line in the file secretgr.txt. Both of these files are located in the MyPersonalKeyAPI directory.
 
