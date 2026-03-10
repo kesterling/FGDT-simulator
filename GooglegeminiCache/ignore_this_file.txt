@@ -1,0 +1,1 @@
+Ignore this file. It is here to keep the Gemini cache directory on the GitHub repository. The Gemini cache directory must be present for the Python scripts to run.
