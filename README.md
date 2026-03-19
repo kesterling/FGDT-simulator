@@ -18,8 +18,7 @@ The Python script "simulation_digitaltwins_v2.py" runs the main simulator. To ru
 - a JSON-like file with the summaries across the three rounds
 - a CSV file for each option reporting the within-option cosine similarities
 
-You can run "summarizationSimilarities.py" to update the CSV file to recover the cosine similarities from each round 1 response and the corresponding summary for a given run. You use this updated file to do a summary bias evaluation.
-Optionally run "Round1_frequencies.py" to optimize the parameter settings in order to get the desired response frequencies. You also can run "baseline_similarities.py" to infer the correlation between arbitrary sentences for a given topic.
+You can run "summarizationSimilarities.py" to update the CSV file to recover the cosine similarities from each round 1 response and the corresponding summary for a given run. You use this updated file to do a summary bias evaluation. Use "coverage_test.py" to run the LLM coder for the coverage validation test. Optionally run "Round1_frequencies.py" to optimize the parameter settings in order to get the desired response frequencies. You also can run "baseline_similarities.py" to infer the correlation between arbitrary sentences for a given topic, to get a random baseline for cosine similarity scores for that topic.
 
 
 File listing:
@@ -32,3 +31,4 @@ File listing:
 - "baseline_similarities.py" creates random sentences on a topic to establish a baseline cosine similarity distribution
 - "round1_frequencies.py" runs round1 only, so just outputs normal survey responses
 - "summarizationSimilarities.py" is the tool used in the bias audit for the summaries
+- "coverage_test.py" is the LLM coder to implement the coverage validation test
