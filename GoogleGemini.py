@@ -20,7 +20,7 @@ def InitGoogleGemini(folder=''):
 
 
 
-def AskGoogleGemini(prompt: str, model='gemini-2.5-flash', max_output_tokens=1024, force=False, temperature=0.5, top_k=40) -> str:
+def AskGoogleGemini(prompt: str, model='gemini-3-flash-preview', max_output_tokens=1024, force=False, temperature=0.5, top_k=40) -> str:
     "Ask a prompt to given Google Cloud model and return the response text and safety ratings. NOTE: Must run InitGoogleGemini() beforehand."
     # Get cache folder path of desired model and create one if it does not already exist
     folder = os.path.dirname(os.path.abspath(__file__)) + '/' # Folder of this script

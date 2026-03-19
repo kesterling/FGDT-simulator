@@ -225,7 +225,7 @@ def main():
     "Simulate a focus group using LLM agents"
     # SET USER PARAMS HERE
     models = [
-        'gemini-2.5-flash',  
+        'gemini-3-flash-preview',  
         'llama-3.3-70b-versatile',
         'qwen/qwen3-32b',
         #'deepseek-r1-distill-llama-70b',

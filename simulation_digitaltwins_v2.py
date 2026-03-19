@@ -479,7 +479,7 @@ def main():
     "Simulate a focus group using LLM agents"
     # SET USER PARAMS HERE
     models = [
-        'gemini-2.5-flash',  # use
+        'gemini-3-flash-preview',  # use
         'llama-3.3-70b-versatile', # use
         'qwen/qwen3-32b', # use
         #'deepseek-r1-distill-llama-70b',
@@ -487,28 +487,39 @@ def main():
         'openai/gpt-oss-120b', # use
     ]
     # the first entry of cov_keys must be 'model' and the remaining entries must be fields in twinpersonalities
-    cov_keys=['model', 'gender', 'education', 'politics', 'pgreen']
+#    cov_keys=['model', 'gender', 'education', 'politics', 'pgreen']
+    cov_keys=['model', 'gender', 'education', 'politics', 'race', 'pneedforcognition', 'pvc']
     # enter the general topic (no more than several words); do not include punctuation at the end
-    topic = 'the adoption of Nuclear Power. '
+#    topic = 'the adoption of Nuclear Power. '
+    topic = 'the size of the U.S. House of Representatives. '
     # enter the standpoint options here; do not include punctuation at the end
+    # standpointOptions = [
+    #     'implement rapid expansion of and investment in nuclear power',
+    #     'maintain the current nuclear energy operations without change',
+    #     'phase out existing nuclear plants and halt new construction',
+    #     'prioritize researching improved implementations of nuclear power',
+    # ] 
     standpointOptions = [
-        'implement rapid expansion of and investment in nuclear power',
-        'maintain the current nuclear energy operations without change',
-        'phase out existing nuclear plants and halt new construction',
-        'prioritize researching improved implementations of nuclear power',
+        'increase the size of the U.S. House of Representatives by adding more seats',
+        'keep the size of the U.S. House of Representatives the same as it is now',
     ] 
     # enter any background info that will help the LLM to give realistic responses
-    background = '''To help you choose an option, please know that according to the PEW Research Center, 
-    59 percent of US residents favor expanding nuclear power. 73 percent of men 
-    favor expanding it while only 44 percent of women favor expanding it. 
-    69 percent of Republicans favor expanding compared to 52 percent of Democrats. 
-    Environmentalists have mixed opinions, where some favor expanding it because 
-    nuclear has a low-carbon footprint, while others are concerned about the risks of nuclear waste disposal.'''
-    sampleSize = 3 # This is the sample size of LLM agents; set this for all experiments
-    numRuns = 1 # Number of runs per experiment; usually 50-100 for traditional and 10-20 for Prytaneum
+    # background = '''To help you choose an option, please know that according to the PEW Research Center, 
+    # 59 percent of US residents favor expanding nuclear power. 73 percent of men 
+    # favor expanding it while only 44 percent of women favor expanding it. 
+    # 69 percent of Republicans favor expanding compared to 52 percent of Democrats. 
+    # Environmentalists have mixed opinions, where some favor expanding it because 
+    # nuclear has a low-carbon footprint, while others are concerned about the risks of nuclear waste disposal.'''
+    background = '''To help you choose an option, please know that 
+    expanding the size of the House will reduce the number of constituents in each district, 
+    enabling representatives to better connect with their district residents. However, 
+    adding new seats to the House would increase the cost of government 
+    and potentially make Congress more unwieldy.'''
+    sampleSize = 600 # This is the sample size of LLM agents; set this for all experiments
+    numRuns = 10 # Number of runs per experiment; usually 50-100 for traditional and 10-20 for Prytaneum
     saveToFile = True # Save the raw results of each experiment run to file; keep as True unless testing
     saveSimilaritiesToFile = True # Save the final cosine similarities to file
-    force = True  # set to True if you don't want to use cached answers; caching allows you to re-run an experiment at no cost
+    force = False  # set to True if you don't want to use cached answers; caching allows you to re-run an experiment at no cost
     # END USER PARAMS
 
     # Initialize LLMs

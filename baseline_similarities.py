@@ -16,7 +16,7 @@ os.environ['GEMINI_API_KEY'] = apikey # Personal key
 # The next two lines create a client instance
 global client 
 client = genai.Client()
-model='gemini-2.5-flash'
+model='gemini-3-flash-preview'
 
 prompt="Please write 100 sentences about nuclear power in the US. Please return the sentences as a Python list."
 

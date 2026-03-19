@@ -5,13 +5,13 @@ import pandas as pd
 from sentence_transformers import SentenceTransformer, util
 transformerModel = SentenceTransformer('all-MiniLM-L6-v2')
 
-filename = os.getcwd() + '\\Results\\trial_id_6737109129\\ResponsesDF_n0.csv'
+filename = os.getcwd() + '\\Results\\trial_id_8847511010\\ResponsesDF_n0.csv'
 tempdf = pd.read_csv(filename)
 responseDict = tempdf.to_dict(orient='list')
 
 
 def AnalyzeSimulated():
-    filename = os.getcwd() + '\\Results\\trial_id_6737109129\\ResponseSummaries_n0.json'
+    filename = os.getcwd() + '\\Results\\trial_id_8847511010\\ResponseSummaries_n0.json'
     with open(filename, 'r', encoding="utf-8") as f:
             summaries = f.read()
     standpointSummaries=json.loads(summaries)
@@ -45,7 +45,7 @@ def AnalyzeSimulated():
         responseDict['similarityColumn5'].append(round(float(util.cos_sim(responseEmbeddings, summsStandpointNumEmbeddings[standpointNum][4])[0][0]), 4))
 
     # Format everything as a dataframe and save to .csv
-    filename = os.getcwd() + '\\Results\\trial_id_6737109129\\ResponsesDF_similarities_n0.csv'
+    filename = os.getcwd() + '\\Results\\trial_id_8847511010\\ResponsesDF_similarities_n0.csv'
     print('Saving results to file:', filename)
     df = pd.DataFrame(responseDict)
     df.to_csv(filename, index=False)
