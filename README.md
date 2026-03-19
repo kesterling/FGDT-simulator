@@ -1,5 +1,6 @@
 This is the repository to run the focus group digital twins simulator developed by the TeCD-Lab at UCR. For questions about this directory, please write to Kevin Esterling, kevin.esterling@ucr.edu.
 
+To start, be certain to first read the paper (PDF is available in the repository) entitled, "Using LLM Digital Twin Simulation to Evaluate the Emergent Properties of Human Group Interaction." That paper describes the software implemented in this repository.
 
 TO RUN THIS REPOSITORY, download the full zip file, unpack it, and run the script locally on your machine. The download will include four subdirectories that are necessary for the Python scripts to run. These are:
 
