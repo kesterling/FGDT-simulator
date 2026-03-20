@@ -14,18 +14,18 @@ You must enter your Gemini API key as a single line in the file secretge.txt, an
 
 The Python script "simulation_digitaltwins_v2.py" runs the main simulator. To run the simulator, edit the USER PARAMETERS in the main() function, and then press run. The parameters that you can set for the simulation are:
 
-models: a list of LLM models 
-cov_keys: a list of keys indicating covariates to use to build personas (keys are explained below)
-topic: a string of a few words defining the topic of the discussion
-standpointOptions: a list of closed-ended survey standpoint options related to the topic 
-background: a string providing the LLM any background information relevant to the topic
-sampleSize: an integer setting the sample size of LLM agents for each trial
-numRuns: an integer setting the number of trials per experiment; usually 50 small-N and 10-20 for large-N
-saveToFile: set to True to ave the results of each experiment run to file; keep as True unless testing
-saveSimilaritiesToFile: set to True to save the final cosine similarities to file
-force = False  # set to True if you don't want to use cached answers; caching allows you to re-run an experiment at no cost
+- *models:* a list of LLM models 
+- *cov_keys:* a list of keys indicating covariates to use to build personas (keys are explained below)
+- *topic:* a string of a few words defining the topic of the discussion
+- *standpointOptions:* a list of closed-ended survey standpoint options related to the topic 
+- *background:* a string providing the LLM any background information relevant to the topic
+- *sampleSize:* an integer setting the sample size of LLM agents for each trial
+- *numRuns:* an integer setting the number of trials per experiment; usually 50 small-N and 10-20 for large-N
+- *saveToFile:* set to True to ave the results of each experiment run to file; keep as True unless testing
+- *saveSimilaritiesToFile:* set to True to save the final cosine similarities to file
+- *force* = False  # set to True if you don't want to use cached answers; caching allows you to re-run an experiment at no cost
  
-See "DigitalTwin example.txt" to interpret the digital twin covariates. This file also provides the keys for each covariate that you can include to build a persona. The keys are entered in the cov_keys list in the USER PARAMETER section of the main() function. Importantly, the first key in the cov_keys list must be 'model' -- otherwise you can include any keys from the "DigitalTwin example.txt" file in any order. 
+The script gives examples and provide additional comments on how to set the paramters. See "DigitalTwin example.txt" to interpret the digital twin covariates. This file also provides the keys for each covariate that you can include to build a persona. The keys are entered in the cov_keys list in the USER PARAMETER section of the main() function. Importantly, the first key in the cov_keys list must be 'model' -- otherwise you can include any keys from the "DigitalTwin example.txt" file in any order. 
 
 Each session will create a new folder in the Results subdirectory with name "trial_id_#" where the # is replaced by a random number. Each trial_id_# folder has a unique name so new experiements do not overwite previous experiments. When running an experimental session, the script will create a new trial_id_# folder and then write the following files:
 
