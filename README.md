@@ -48,7 +48,7 @@ The files saved in each trial_id_# folder are the basic output of this simulator
 The files in the respository are as follows:
 
 - "simulation_digitalteins_v2.py" is the main simulator file
-- "DigitalTwin example.txt" is the codebook indicating covariates and their keys
+- "DigitalTwin example.txt" is the Toubia (2025) database codebook indicating covariates and their keys
 - "GoogleGemini.py" and "GroqLlm.py" call the LLMs
 - "digitaltwins_promptblocks.py" is the module containing the prompt blocks for the digital twin covariates
 - "ProcessDigitalTwins.py" is the code that converts the digital twin summaries to a CSV file
