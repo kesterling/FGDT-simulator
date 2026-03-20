@@ -22,12 +22,12 @@ def digitaltwins_blocks(covdict: dict, topic: str):
     #    # elif block optional -- used for classification for keynames that are floats
     #    else: 
     #        prompt += f'prompt text {covdict['keyname']} etc.'
-    prompt = 'You will adopt the personality of '
+    prompt = 'You will adopt the personality of a '
     if 'education' in covdict.keys():
         if covdict['education']=="None":
             pass
         else:
-            prompt += f'a {covdict['education']}-educated, '
+            prompt += f'{covdict['education']}-educated, '
     if 'race' in covdict.keys():
         if covdict['race']=="None":
             pass
