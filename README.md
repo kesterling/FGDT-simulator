@@ -2,7 +2,7 @@
 
 This is the repository to run the focus group digital twins simulator developed by the TeCD-Lab at UCR. For questions about this repository, please write to Kevin Esterling, <kevin.esterling@ucr.edu>.
 
-**To start, be certain to first read the paper [PDF is available in the repository](https://github.com/kesterling/FGDT-simulator/blob/main/Using%20LLM%20Digital%20Twin%20Simulation%20to%20Evaluate%20the%20Emergent%20Properties%20of%20Human%20Group%20Interaction.pdf) entitled, "Using LLM Digital Twin Simulation to Evaluate the Emergent Properties of Human Group Interaction." That paper describes the software implemented in this repository.**
+**To start, be certain to first read the paper entitled, "Using LLM Digital Twin Simulation to Evaluate the Emergent Properties of Human Group Interaction." That paper describes the software implemented in this repository.** The PDF is [available in the repository](https://github.com/kesterling/FGDT-simulator/blob/main/Using%20LLM%20Digital%20Twin%20Simulation%20to%20Evaluate%20the%20Emergent%20Properties%20of%20Human%20Group%20Interaction.pdf) 
 
 ## Instructions to run the scripts
 
@@ -29,7 +29,9 @@ The Python script "simulation_digitaltwins_v2.py" runs the main simulator. To ru
 - *saveSimilaritiesToFile:* set to True to save the final cosine similarities to file
 - *force* = False  # set to True if you don't want to use cached answers; caching allows you to re-run an experiment at no cost
  
-The script gives examples and provide additional comments on how to set the paramters. See "DigitalTwin example.txt" to interpret the digital twin covariates. This file also provides the keys for each covariate that you can include to build a persona. The keys are entered in the cov_keys list in the USER PARAMETER section of the main() function. Importantly, the first key in the cov_keys list must be 'model' -- otherwise you can include any keys from the "DigitalTwin example.txt" file in any order. 
+The script gives examples and provide additional comments on how to set the paramters. The parameters are preset to values we use for the simulations we report in the paper, but these can be modified to fit the simulator's substantive interests. When editing the user parameters, be certain to use the same structure as the preset values, ensuring lists are entered as lists, integers as integers, etc. The number of items you include a list is arbitrary, however. For example, it does not matter how many standpointOptions you include or how many cov_keys you include. You can omit background information for the LLM by including '' as your string. You can omit covariates by only including 'model' in the cov_keys list. All other paramters must be set.
+
+The digital twins data base comes from Toubia et al. (2025). See "DigitalTwin example.txt" to interpret the Toubia digital twin covariates. This file also provides the keys for each covariate that you can include to build a persona. The keys are entered in the cov_keys list in the USER PARAMETER section of the main() function. Importantly, the first key in the cov_keys list must be 'model' -- otherwise you can include any keys from the "DigitalTwin example.txt" file in any order. 
 
 Each session will create a new folder in the Results subdirectory with name "trial_id_#" where the # is replaced by a random number. Each trial_id_# folder has a unique name so new experiements do not overwite previous experiments. When running an experimental session, the script will create a new trial_id_# folder and then write the following files into the new folder:
 
@@ -55,3 +57,7 @@ The files in the respository are as follows:
 - "round1_frequencies.py" runs round1 only, so just outputs normal survey responses
 - "summarizationSimilarities.py" is the tool used in the bias audit for the summaries
 - "coverage_test.py" is the LLM coder to implement the coverage validation test
+
+## References
+
+Toubia, O., G. Z. Gui, T. Peng, D. J. Merlau, A. Li, and H. Chen (2025, 8). Database Report: Twin-2K-500: A Data Set for Building Digital Twins of over 2,000 People Based on Their Answers to over 500 Questions. _Marketing Science_ 44 (6), 1446–1455.
