@@ -51,7 +51,7 @@ The files in the respository are as follows:
 - "DigitalTwin example.txt" is the Toubia (2025) database codebook indicating covariates and their keys
 - "GoogleGemini.py" and "GroqLlm.py" call the LLMs
 - "digitaltwins_promptblocks.py" is the module containing the prompt blocks for the digital twin covariates
-- "ProcessDigitalTwins.py" is the code that converts the digital twin summaries to a CSV file
+- "ProcessDigitalTwins.py" is the code that converts the Toubia (2025) digital twin data to a CSV file
 - "twin_personalities_file.csv" is the digital twin covariate CSV file (i.e., the output of ProcessDigitalTwins.py)
 - "summarizationSimilarities.py" is the tool used in the bias audit for the summaries validation
 - "coverage_test.py" is the LLM coder to implement the coverage validation test
