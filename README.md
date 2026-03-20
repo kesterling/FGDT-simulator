@@ -12,17 +12,32 @@ TO RUN THIS REPOSITORY, download the full zip file, unpack it, and run the scrip
 You must enter your Gemini API key as a single line in the file secretge.txt, and your Groq API key as a single line in the file secretgr.txt. Both of these files are located in the MyPersonalKeyAPI directory.
 
 
-The Python script "simulation_digitaltwins_v2.py" runs the main simulator. To run the simulator, edit the USER PARAMETERS in the main() function, and then press run. See "DigitalTwin example.txt" to interpret the digital twin covariates. This file also provides the keys for each covariate that you can include to build a persona. The keys are entered in the USER PARAMETER section of the main() function. Each session will create a new directory with:
+The Python script "simulation_digitaltwins_v2.py" runs the main simulator. To run the simulator, edit the USER PARAMETERS in the main() function, and then press run. The parameters that you can set for the simulation are:
+
+models: a list of LLM models 
+cov_keys: a list of keys indicating covariates to use to build personas (keys are explained below)
+topic: a string of a few words defining the topic of the discussion
+standpointOptions: a list of closed-ended survey standpoint options related to the topic 
+background: a string providing the LLM any background information relevant to the topic
+sampleSize: an integer setting the sample size of LLM agents for each trial
+numRuns: an integer setting the number of trials per experiment; usually 50 small-N and 10-20 for large-N
+saveToFile: set to True to ave the results of each experiment run to file; keep as True unless testing
+saveSimilaritiesToFile: set to True to save the final cosine similarities to file
+force = False  # set to True if you don't want to use cached answers; caching allows you to re-run an experiment at no cost
+ 
+See "DigitalTwin example.txt" to interpret the digital twin covariates. This file also provides the keys for each covariate that you can include to build a persona. The keys are entered in the cov_keys list in the USER PARAMETER section of the main() function. Importantly, the first key in the cov_keys list must be 'model' -- otherwise you can include any keys from the "DigitalTwin example.txt" file in any order. 
+
+Each session will create a new folder in the Results subdirectory with name "trial_id_#" where the # is replaced by a random number. Each trial_id_# folder has a unique name so new experiements do not overwite previous experiments. When running an experimental session, the script will create a new trial_id_# folder and then write the following files:
 
 - a text file reporting the parameter settings used
 - a CSV file with all personality covariates, options chosen, arguments seen, and responses
 - a JSON-like file with the summaries across the three rounds
 - a CSV file for each option reporting the within-option cosine similarities
 
-You can run "summarizationSimilarities.py" to update the CSV file to recover the cosine similarities from each round 1 response and the corresponding summary for a given run. You use this updated file to do a summary bias evaluation. Use "coverage_test.py" to run the LLM coder for the coverage validation test. Optionally run "Round1_frequencies.py" to optimize the parameter settings in order to get the desired response frequencies. You also can run "baseline_similarities.py" to infer the correlation between arbitrary sentences for a given topic, to get a random baseline for cosine similarity scores for that topic.
+The files saved in each trial_id_# folder are the basic output of this simulator. There are a few auxiliary scripts available as well to run the validation tests. First, you can run "summarizationSimilarities.py" to update the CSV file to recover the cosine similarities from each round 1 response and the corresponding summary for a given run. You use this updated file to do a summary bias evaluation. Second, you can use "coverage_test.py" to run the LLM coder for the coverage validation test. Optionally run "Round1_frequencies.py" to optimize the parameter settings in order to get the desired response frequencies. You also can run "baseline_similarities.py" to infer the correlation between arbitrary sentences for a given topic, to get a random baseline for cosine similarity scores for that topic.
 
 
-File listing:
+Repository file listing:
 - "simulation_digitalteins_v2.py" is the main simulator file
 - "DigitalTwin example.txt" is the codebook indicating covariates and their keys
 - "GoogleGemini.py" and "GroqLlm.py" call the LLMs
