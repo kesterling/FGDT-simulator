@@ -1,6 +1,10 @@
-This is the repository to run the focus group digital twins simulator developed by the TeCD-Lab at UCR. For questions about this repository, please write to Kevin Esterling, kevin.esterling@ucr.edu.
+## Introduction
+
+This is the repository to run the focus group digital twins simulator developed by the TeCD-Lab at UCR. For questions about this repository, please write to Kevin Esterling, <kevin.esterling@ucr.edu>.
 
 **To start, be certain to first read the paper [PDF is available in the repository](https://github.com/kesterling/FGDT-simulator/blob/main/Using%20LLM%20Digital%20Twin%20Simulation%20to%20Evaluate%20the%20Emergent%20Properties%20of%20Human%20Group%20Interaction.pdf) entitled, "Using LLM Digital Twin Simulation to Evaluate the Emergent Properties of Human Group Interaction." That paper describes the software implemented in this repository.**
+
+## Instructions to run the scripts
 
 TO RUN THIS REPOSITORY, download the full zip file, unpack it, and run the script locally on your machine. The download will include four subdirectories that are necessary for the Python scripts to run. These are:
 
@@ -37,7 +41,10 @@ Each session will create a new folder in the Results subdirectory with name "tri
 The files saved in each trial_id_# folder are the basic output of this simulator. There are a few auxiliary scripts available as well to run the validation tests. First, you can run "summarizationSimilarities.py" to update the CSV file to recover the cosine similarities from each round 1 response and the corresponding summary for a given run. You use this updated file to do a summary bias evaluation. Second, you can use "coverage_test.py" to run the LLM coder for the coverage validation test. Optionally run "Round1_frequencies.py" to optimize the parameter settings in order to get the desired response frequencies. You also can run "baseline_similarities.py" to infer the correlation between arbitrary sentences for a given topic, to get a random baseline for cosine similarity scores for that topic.
 
 
-Repository file listing:
+## Repository file listing
+
+The files in the respository are as follows:
+
 - "simulation_digitalteins_v2.py" is the main simulator file
 - "DigitalTwin example.txt" is the codebook indicating covariates and their keys
 - "GoogleGemini.py" and "GroqLlm.py" call the LLMs
