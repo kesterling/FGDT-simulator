@@ -36,9 +36,9 @@ The digital twins data base comes from Toubia et al. (2025). See "DigitalTwin ex
 Each session will create a new folder in the Results subdirectory with name "trial_id_#" where the # is replaced by a random number. Each trial_id_# folder has a unique name so new experiements do not overwite previous experiments. When running an experimental session, the script will create a new trial_id_# folder and then write the following files into the new folder:
 
 - a text file reporting the parameter settings used
-- a CSV file with all personality covariates, options chosen, arguments seen, and responses
-- a JSON-like file with the summaries across the three rounds
-- a CSV file for each option reporting the within-option cosine similarities
+- a set of CSV files, each with all personality covariates, options chosen, arguments seen, and responses. There is one CSV file per trial and the file name indicates the index of the trial
+- a set of JSON-like files, each with the summaries across the three rounds, for each trial. Likewise, the file name indicates the index of the trial
+- a CSV file for each option reporting the within-option cosine similarities across trials for that session
 
 The files saved in each trial_id_# folder are the basic output of this simulator. There are a few auxiliary scripts available as well to run the validation tests. First, you can run "summarizationSimilarities.py" to update the CSV file to recover the cosine similarities from each round 1 response and the corresponding summary for a given run. You use this updated file to do a summary bias evaluation. Second, you can use "coverage_test.py" to run the LLM coder for the coverage validation test. Optionally run "Round1_frequencies.py" to optimize the parameter settings in order to get the desired response frequencies. You also can run "baseline_similarities.py" to infer the correlation between arbitrary sentences for a given topic, to get a random baseline for cosine similarity scores for that topic.
 
