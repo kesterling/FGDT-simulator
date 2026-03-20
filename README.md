@@ -52,11 +52,11 @@ The files in the respository are as follows:
 - "GoogleGemini.py" and "GroqLlm.py" call the LLMs
 - "digitaltwins_promptblocks.py" is the module containing the prompt blocks for the digital twin covariates
 - "ProcessDigitalTwins.py" is the code that converts the digital twin summaries to a CSV file
-- "twin_personalities_file.csv" is the digital twin covariate CSV file
-- "baseline_similarities.py" creates random sentences on a topic to establish a baseline cosine similarity distribution
-- "round1_frequencies.py" runs round1 only, so just outputs normal survey responses
-- "summarizationSimilarities.py" is the tool used in the bias audit for the summaries
+- "twin_personalities_file.csv" is the digital twin covariate CSV file (i.e., the output of ProcessDigitalTwins.py)
+- "summarizationSimilarities.py" is the tool used in the bias audit for the summaries validation
 - "coverage_test.py" is the LLM coder to implement the coverage validation test
+- "round1_frequencies.py" runs round1 only, so just outputs normal survey responses
+- "baseline_similarities.py" creates random sentences on a topic to establish a baseline cosine similarity distribution
 
 ## References
 
