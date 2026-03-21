@@ -71,7 +71,7 @@ The files in the respository are as follows:
 - "twin_personalities_file.csv" is the digital twin covariate CSV file (i.e., the output of ProcessDigitalTwins.py)
 - "summarizationSimilarities.py" is the tool used in the bias audit for the summaries validation
 - "coverage_test.py" is the LLM coder to implement the coverage validation test
-- "round1_frequencies.py" runs round1 only, so just outputs normal survey responses
+- "round1_frequencies.py" runs stage 1 only, so just outputs normal survey responses
 - "baseline_similarities.py" creates random sentences on a topic to establish a baseline cosine similarity distribution
 
 ## References
