@@ -40,7 +40,7 @@ The digital twins data base comes from Toubia et al. (2025). See the file "Digit
 Each session will create a new folder in the Results subdirectory with name "trial_id_#" where the # is replaced by a random number. Each trial_id_# folder has a unique name so new experiements do not overwite previous experiments. When running an experimental session, the script will create a new trial_id_# folder and then write the following files into the new folder:
 
 - a text file reporting the parameter settings used
-- a set of CSV files, each with all personality covariates, options chosen, arguments seen, and responses. There is one CSV file per trial and the file name indicates the index of the trial
+- a set of CSV files, each with all personality covariate values for each persona, the options chosen, arguments seen, and persona responses. There is one CSV file per trial and the file name indicates the index of the trial
 - a set of JSON-like files, each with the summaries across the three rounds, for each trial. Likewise, the file name indicates the index of the trial
 - a CSV file for each option reporting the within-option cosine similarities across trials for that session
 
