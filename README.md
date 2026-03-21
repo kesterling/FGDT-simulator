@@ -1,4 +1,8 @@
-## Introduction
+# Focus Group Digital Twin Simulator
+
+Built by the [TeCD-Lab](https://tecd-lab.ucr.edu/) at UCR, the focus group digitial twin (FGDT) simulator can evaluate the sampling distribution for different design implementations of the structured focus group. The structured focus group is an AI-assisted research design that can scale to any number of participants, and can be implemented for human participants using the online collaboration platform called [Prytaneum](https://prytaneum.io/). The FDGT simulator is a low cost, low effort method to evaluate the design of a structured focus group before conducting sessions with human participants.
+
+## Introduction to the repository
 
 This is the repository to run the focus group digital twins simulator developed by the TeCD-Lab at UCR. For questions about this repository, please write to Kevin Esterling, <kevin.esterling@ucr.edu>.
 
