@@ -8,6 +8,8 @@ This is the repository to run the focus group digital twins simulator developed 
 
 **To start, be certain to first read the paper entitled, "Using LLM Digital Twin Simulation to Evaluate the Emergent Properties of Human Group Interaction." That paper describes the software implemented in this repository.** The PDF is [available in the repository](https://github.com/kesterling/FGDT-simulator/blob/main/Using%20LLM%20Digital%20Twin%20Simulation%20to%20Evaluate%20the%20Emergent%20Properties%20of%20Human%20Group%20Interaction.pdf) 
 
+IMPORTANT: At the end of this README you will find the list of Python packages that you must have installed locally in order to run this repository. Please verify that each of these are installed before you attempt to run the scripts.
+
 ## Instructions to run the simulator script
 
 TO RUN THIS REPOSITORY, download the full zip file, unpack it, and run the script locally on your machine. The download will include four subdirectories that are necessary for the Python scripts to run. These are:
@@ -73,6 +75,27 @@ The files in the respository are as follows:
 - "coverage_test.py" is the LLM coder to implement the coverage validation test
 - "round1_frequencies.py" runs stage 1 only, so just outputs normal survey responses
 - "baseline_similarities.py" creates random sentences on a topic to establish a baseline cosine similarity distribution
+
+## Required Python packages
+
+The following packages are required in order to run the scripts in this repository. 
+
+- os
+- sys
+- json
+- pandas
+- numpy
+- hashlib
+- ast
+- SentenceTransformer from sentence_transformers 
+- util from sentence_transformers
+- cosine_similarity from sklearn.metrics.pairwise
+- genai from google
+- types from google.genai
+- Groq from groq
+- load_dataset from datasets
+
+Not every package is required for every script. If you want to minimize installations, you can examine the packages that are loaded in the script you wish to run. If you have any issues running this repository, please email Kevin Esterling <kevin.esterling@ucr.edu>
 
 ## References
 
