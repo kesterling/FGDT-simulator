@@ -8,7 +8,7 @@ This is the repository to run the focus group digital twins simulator developed 
 
 **To start, be certain to first read the paper entitled, "Using LLM Digital Twin Simulation to Evaluate the Emergent Properties of Human Group Interaction." That paper describes the software implemented in this repository.** The PDF is [available in the repository](https://github.com/kesterling/FGDT-simulator/blob/main/Using%20LLM%20Digital%20Twin%20Simulation%20to%20Evaluate%20the%20Emergent%20Properties%20of%20Human%20Group%20Interaction.pdf) 
 
-IMPORTANT: At the end of this README you will find the list of Python packages that you must have installed locally in order to run this repository. Please verify that each of these are installed before you attempt to run the scripts. You do not need to know Python to run the scripts; however you do need to have a recent version of Python installed locally that is accessible through your IDE, and you do need to install the Python packages that are listed at the end of this document.
+IMPORTANT: At the end of this README you will find the list of Python packages that you must have installed locally in order to run this repository. Please verify that each of these are installed before you attempt to run the scripts. You do not need to know Python to run the scripts; however you do need to have a recent version of Python installed locally (we use Python 3.13.7) and you do need to install the current versions of the Python packages that are listed at the end of this document. 
 
 
 ## Instructions to run the simulator script
