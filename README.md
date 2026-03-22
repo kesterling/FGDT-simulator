@@ -31,9 +31,9 @@ The Python script "simulation_digitaltwins_v2.py" runs the main simulator. To ru
 - *background:* a string providing the LLM any background information relevant to the topic
 - *sampleSize:* an integer setting the sample size of LLM agents for each trial
 - *numRuns:* an integer setting the number of trials per experiment; usually 50 small-N and 10-20 for large-N
-- *saveToFile:* set to True to ave the results of each experiment run to file; keep as True unless testing
-- *saveSimilaritiesToFile:* set to True to save the final cosine similarities to file
-- *force* = False  # set to True if you don't want to use cached answers; caching allows you to re-run an experiment at no cost
+- *saveToFile:* set to True to save the results of each experiment run to file; keep as True unless testing
+- *saveSimilaritiesToFile:* set to True to save the final cosine similarities to file; keep as True unless testing
+- *force:* set to False; set to True if you don't want to cache LLM responses; caching allows you to re-run an experiment at no cost but takes up disk space
  
 The parameters are preset to values we use for the simulations we report in the paper, but these can be modified to fit the simulator's substantive interests. The script gives examples and provides additional comments on how to set the paramters. When editing the user parameters, be certain to use the same formatting and structure as the preset values, ensuring lists are entered as lists, integers as integers, etc. The number of items you include in a list is arbitrary, however. For example, it does not matter how many standpointOptions you include or how many cov_keys you include. You can omit background information for the LLM by including '' (i.e., an empty string) as your string. You can omit covariates by only including 'model' in the cov_keys list. All other paramters must be set.
 
