@@ -37,7 +37,7 @@ The Python script "simulation_digitaltwins_v3.py" runs the main simulator. To ru
  
 The parameters are preset to values we use for the simulations we report in the paper, but these can be modified to fit the simulator's substantive interests. The script gives examples and provides additional comments on how to set the paramters. When editing the user parameters, be certain to use the same formatting and structure as the preset values, ensuring lists are entered as lists, integers as integers, etc. The number of items you include in a list is arbitrary, however. For example, it does not matter how many standpointOptions you include or how many cov_keys you include. You can omit background information for the LLM by including '' (i.e., an empty string) as your string. You can omit covariates by only including 'model' in the cov_keys list. All other paramters must be set.
 
-The digital twins data base comes from Toubia et al. (2025). See the file "DigitalTwin example.txt" to interpret the Toubia digital twin covariates. This file also provides the keys for each covariate that you can include to build a persona. The keys are entered in the cov_keys list in the USER PARAMS section of the main() function. Importantly, the first key in the cov_keys list must be 'model' -- otherwise you can include any keys from the "DigitalTwin example.txt" file in any order. 
+The digital twins data base comes from Toubia et al. (2025). See the file "DigitalTwin example.txt" to interpret the Toubia digital twin covariates. This file also provides the keys for each covariate that you can include to build a persona. The keys are entered in the cov_keys list in the USER PARAMETERS section of the main() function. Importantly, the first key in the cov_keys list must be 'model' -- otherwise you can include any keys from the "DigitalTwin example.txt" file in any order. 
 
 Each session will create a new folder in the Results subdirectory with name "trial_id_#" where the # is replaced by a random number. Each trial_id_# folder has a unique name so new experiements do not overwite previous experiments. When running an experimental session, the script will create a new trial_id_# folder and then write the following files into the new folder:
 
@@ -65,7 +65,8 @@ We provide the data and code to use our simulation output in order to reproduce 
 
 The files in the respository are as follows:
 
-- "simulation_digitalteins_v2.py" is the main simulator file
+- "simulation_digitalteins_v3.py" is the main simulator file
+- "simulation_digitalteins_v2.py" is the stable version -- use only if v3 encounters a problem
 - "DigitalTwin example.txt" is the Toubia (2025) database codebook indicating covariates and their keys
 - "GoogleGemini.py" and "GroqLlm.py" call the LLMs
 - "digitaltwins_promptblocks.py" is the module containing the prompt blocks for the digital twin covariates
