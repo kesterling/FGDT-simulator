@@ -22,17 +22,17 @@ TO RUN THIS REPOSITORY, download the full zip file, unpack it, and run the scrip
 
 You must enter your Gemini API key as a single line in the file secretge.txt, and your Groq API key as a single line in the file secretgr.txt. Both of these files are located in the MyPersonalKeyAPI directory.
 
-The Python script "simulation_digitaltwins_v2.py" runs the main simulator. To run the simulator, open the project directory in your IDE (such as VS Code or Positron), open the "simulation_digitialtwins_v2.py" file, edit the USER PARAMS in the main() function, and then press run. The user parameters that you can set for the simulation are:
+The Python script "simulation_digitaltwins_v3.py" runs the main simulator. To run the simulator, open the project directory in your IDE (such as VS Code or Positron), open the "simulation_digitialtwins_v3.py" file, edit the USER PARAMETERS in the main() function, and then press run. The user parameters that you can set for the simulation are:
 
 - *models:* a list of LLM models 
 - *cov_keys:* a list of keys indicating covariates to use to build personas (keys are explained below)
 - *topic:* a string of a few words defining the topic of the discussion
-- *standpointOptions:* a list of closed-ended survey standpoint options related to the topic 
+- *standpoint_options:* a list of closed-ended survey standpoint options related to the topic 
 - *background:* a string providing the LLM any background information relevant to the topic
-- *sampleSize:* an integer setting the sample size of LLM agents for each trial
-- *numRuns:* an integer setting the number of trials per experiment; usually 50 small-N and 10-20 for large-N
-- *saveToFile:* set to True to save the results of each experiment run to file; keep as True unless testing
-- *saveSimilaritiesToFile:* set to True to save the final cosine similarities to file; keep as True unless testing
+- *sample_size:* an integer setting the sample size of LLM agents for each trial
+- *num_runs:* an integer setting the number of trials per experiment; usually 50 small-N and 10-20 for large-N
+- *save_to_file:* set to True to save the results of each experiment run to file; keep as True unless testing
+- *save_similarities_to_file:* set to True to save the final cosine similarities to file; keep as True unless testing
 - *force:* set to False; set to True if you don't want to cache LLM responses; caching allows you to re-run an experiment at no cost but takes up disk space
  
 The parameters are preset to values we use for the simulations we report in the paper, but these can be modified to fit the simulator's substantive interests. The script gives examples and provides additional comments on how to set the paramters. When editing the user parameters, be certain to use the same formatting and structure as the preset values, ensuring lists are entered as lists, integers as integers, etc. The number of items you include in a list is arbitrary, however. For example, it does not matter how many standpointOptions you include or how many cov_keys you include. You can omit background information for the LLM by including '' (i.e., an empty string) as your string. You can omit covariates by only including 'model' in the cov_keys list. All other paramters must be set.
