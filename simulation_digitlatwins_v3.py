@@ -1,5 +1,12 @@
 """
 simulation_digitaltwins_v3.py
+
+NOTE: We used Claude Code to upgrade from simulation_digitaltwins_v2.py
+to simulation_digitaltwins_v3.py. These two scripts work identically.
+We requested Claude to create a v3 script that worked identically to v2,
+but with more modular and efficient coding, and improved documentation.
+In this way, the undelying IP of the v3 simulator is all human generated.
+
 =============================================================
 Focus-group simulation using LLM "digital twin" agents.
 
