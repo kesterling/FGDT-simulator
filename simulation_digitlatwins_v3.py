@@ -1,12 +1,5 @@
 """
 simulation_digitaltwins_v3.py
-
-NOTE: We used Claude Code to upgrade from simulation_digitaltwins_v2.py
-to simulation_digitaltwins_v3.py. These two scripts work identically.
-We requested Claude to create a v3 script that worked identically to v2,
-but with more modular and efficient coding, and improved documentation.
-In this way, the undelying IP of the v3 simulator is all human generated.
-
 =============================================================
 Focus-group simulation using LLM "digital twin" agents.
 
@@ -307,13 +300,24 @@ def GetStandpointReasoning(
             print('Resolved.')
             print('-' * 40)
         except (json.JSONDecodeError, ValueError):
-            print('PROMPT:')
-            print(prompt)
-            print('RESPONSE:')
+            print('==== JSON parse failed again. Raw response:')
             print(response)
-            print(f'MODEL: {covdict["model"]}')
-            print('ERROR: Could not extract JSON. Exiting.')
-            sys.exit(1)
+            print(f'Model: {covdict["model"]}')
+            print('==== Retrying one more time with force=True …')
+            response = _call_llm(covdict, prompt, force=True)
+            response = _strip_qwen_thinking(response)
+            try:
+                parsed = _extract_json_response(response)
+                print('Resolved.')
+                print('-' * 40)
+            except (json.JSONDecodeError, ValueError):
+                print('PROMPT:')
+                print(prompt)
+                print('RESPONSE:')
+                print(response)
+                print(f'MODEL: {covdict["model"]}')
+                print('ERROR: Could not extract JSON. Exiting.')
+                sys.exit(1)
 
     # Parse standpoint number and reasoning from the JSON dict.
     raw_key = list(parsed.keys())[0]          # e.g. "Standpoint 2" or "Standpoint 2:"
@@ -972,24 +976,43 @@ def main() -> None:
         ],
         # First entry must be 'model'; remaining entries must be columns
         # in twin_personalities_file.csv.
+#        cov_keys=[
+#            'model', 'gender', 'education', 'politics',
+#            'race', 'pneedforcognition', 'pvc',
+#        ],
         cov_keys=[
-            'model', 'gender', 'education', 'politics',
-            'race', 'pneedforcognition', 'pvc',
+            'model', 'gender', 'education', 'politics', 'pgreen'
         ],
-        topic='the size of the U.S. House of Representatives. ',
-        standpoint_options=[
-            'increase the size of the U.S. House of Representatives by adding more seats',
-            'keep the size of the U.S. House of Representatives the same as it is now',
-        ],
-        background=(
-            'To help you choose an option, please know that '
-            'expanding the size of the House will reduce the number of constituents '
-            'in each district, enabling representatives to better connect with their '
-            'district residents. However, adding new seats to the House would increase '
-            'the cost of government and potentially make Congress more unwieldy.'
+#        topic='the size of the U.S. House of Representatives. ',
+        topic = 'the adoption of Nuclear Power. ',
+#        standpoint_options=[
+#            'increase the size of the U.S. House of Representatives by adding more seats',
+#            'keep the size of the U.S. House of Representatives the same as it is now',
+#        ],
+        standpoint_options = [
+            'implement rapid expansion of and investment in nuclear power',
+            'maintain the current nuclear energy operations without change',
+            'phase out existing nuclear plants and halt new construction',
+            'prioritize researching improved implementations of nuclear power',
+        ], 
+#        background=(
+#            'To help you choose an option, please know that '
+#            'expanding the size of the House will reduce the number of constituents '
+#            'in each district, enabling representatives to better connect with their '
+#            'district residents. However, adding new seats to the House would increase '
+#            'the cost of government and potentially make Congress more unwieldy.'
+#        ),
+        background =( 
+            'To help you choose an option, please know that according to the PEW Research Center, '
+            '59 percent of US residents favor expanding nuclear power. 73 percent of men '
+            'favor expanding it while only 44 percent of women favor expanding it. '
+            '69 percent of Republicans favor expanding compared to 52 percent of Democrats. '
+            'Environmentalists have mixed opinions, where some favor expanding it because '
+            'nuclear has a low-carbon footprint, while others are concerned about the risks of '
+            'nuclear waste disposal.'
         ),
-        sample_size=10,    # Agents per run; must not exceed rows in personalities file.
-        num_runs=1,        # Runs per experiment (50-100 traditional, 10-20 Prytaneum).
+        sample_size=600,    # Agents per run; must not exceed rows in personalities file.
+        num_runs=20,        # Runs per experiment (50-100 traditional, 10-20 Prytaneum).
         save_to_file=True,
         save_similarities_to_file=True,
         force=False,       # Set True to bypass caching and always make fresh API calls.
