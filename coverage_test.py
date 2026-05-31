@@ -42,7 +42,7 @@ def getArgumentMatch(topic: str, arguments: list[str], reason: str) -> int:
 def main():
     # SET USER PARAMS HERE
     # enter the directory number that stores the results files; this is the first line of the parameter_settings.txt file
-    dirnum = 4260266019
+    dirnum = 8971956292
 #    dirnum = 9870934131 # this is a 6 persona dataset for testing
     # enter the general topic (no more than several words); do not include punctuation at the end
     topic = 'the adoption of Nuclear Power'
@@ -74,12 +74,30 @@ def main():
     print('Matching started.')
     print('=='*40)
 
-    responsesDF['argument']=[]
+    responsesDF['match_r1']=[]
     i = 0
     for reason in responsesDF['reasoning']:
         # call LLM model which returns an integer
         response = getArgumentMatch(topic, arguments, reason)
-        responsesDF['argument'].append(response)
+        responsesDF['match_r1'].append(response)
+        i += 1
+        print(i)
+
+    responsesDF['match_r2']=[]
+    i = 0
+    for reason in responsesDF['counterargument']:
+        # call LLM model which returns an integer
+        response = getArgumentMatch(topic, arguments, reason)
+        responsesDF['match_r2'].append(response)
+        i += 1
+        print(i)
+
+    responsesDF['match_r3']=[]
+    i = 0
+    for reason in responsesDF['responsetocounter']:
+        # call LLM model which returns an integer
+        response = getArgumentMatch(topic, arguments, reason)
+        responsesDF['match_r3'].append(response)
         i += 1
         print(i)
 

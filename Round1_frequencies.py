@@ -197,9 +197,13 @@ def RunExperiment(models: list[str], cov_list: list[str], topic: str, background
             x[j]=twinpersonalities[j][i]
         covdict_list.append(x)
 
+    k=0
     # Run the experiment using this sample by sending covdict: dict to GetStandpointReasoning, 
     # covdict is a single element of covdict_list
     for covdict in covdict_list:
+        if k == 0 or (k + 1) % 10 == 0 or (k + 1) == len(covdict_list):
+            print(f'  Sampling: agent {k + 1}/{len(covdict_list)}')
+        k+=1
         # Get the standpoint and reasoning for this LLM
         standpointNum, reasoning = GetStandpointReasoning(covdict, topic, background, standpointOptions, n, force)
 
@@ -242,12 +246,14 @@ def main():
 #        'prioritize researching improved implementations of nuclear power. ',
     ] 
     background = '''To help you choose an option, please know that according to PEW Research Center, 
-    59 percent of US residents favor expanding nuclear power. 73 percent of men 
-    favor expanding it while only 44 percent of women favor expanding it. 
-    69 percent of Republicans favor expanding compared to 52 percent of Democrats. 
+    about half of US residents favor expanding nuclear power, while the other half prefer 
+    to maintain operations without change or to phase it out. Most men 
+    favor expanding it while most women women prefer phasing it out or keeping it the same. 
+    Republicans are more likelty to favor expanding compared Democrats. 
     Enviornmentalists have mixed opinions, where some favor expanding it because 
-    nuclear has a low-carbon footprint, while others are concerned about the risks of nuclear waste disposal.'''
-    sampleSize = 5 # This is the sample size of LLM agents; set this for all experiments
+    nuclear has a low-carbon footprint, while others favor contracting it because they 
+    are concerned about the risks of nuclear waste disposal.'''
+    sampleSize = 12 # This is the sample size of LLM agents; set this for all experiments
     # numAnswers = 1  # Number of responses per LLM personality - ignored/not used.
     numRuns = 1 # Number of runs per experiment; usually just one for this file
     saveRawToFile = True # Save the raw results of each experiment run to file; keep as True unless testing

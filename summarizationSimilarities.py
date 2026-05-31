@@ -5,13 +5,13 @@ import pandas as pd
 from sentence_transformers import SentenceTransformer, util
 transformerModel = SentenceTransformer('all-MiniLM-L6-v2')
 
-filename = os.getcwd() + '\\Results\\trial_id_8847511010\\ResponsesDF_n0.csv'
+filename = os.getcwd() + '\\Results\\trial_id_8323757419\\ResponsesDF_n0.csv'
 tempdf = pd.read_csv(filename)
 responseDict = tempdf.to_dict(orient='list')
 
 
 def AnalyzeSimulated():
-    filename = os.getcwd() + '\\Results\\trial_id_8847511010\\ResponseSummaries_n0.json'
+    filename = os.getcwd() + '\\Results\\trial_id_8323757419\\ResponseSummaries_n0.json'
     with open(filename, 'r', encoding="utf-8") as f:
             summaries = f.read()
     standpointSummaries=json.loads(summaries)
@@ -23,7 +23,7 @@ def AnalyzeSimulated():
             summsStandpointNumEmbeddings[standpointNum].append(transformerModel.encode(summ))
 
     # Initialize keys to store the cosine similarities
-    # We need 5 columns for similarity since there are 5 summarizations for each standpoint
+    # We need 5 columns for similarity since there are up to 5 summarizations for each standpoint
     responseDict['similarityColumn1'] = []
     responseDict['similarityColumn2'] = []
     responseDict['similarityColumn3'] = []
@@ -40,22 +40,31 @@ def AnalyzeSimulated():
         standpointNum=str(standpointNum-1)
         responseDict['similarityColumn1'].append(round(float(util.cos_sim(responseEmbeddings, summsStandpointNumEmbeddings[standpointNum][0])[0][0]), 4))
         responseDict['similarityColumn2'].append(round(float(util.cos_sim(responseEmbeddings, summsStandpointNumEmbeddings[standpointNum][1])[0][0]), 4))
-        responseDict['similarityColumn3'].append(round(float(util.cos_sim(responseEmbeddings, summsStandpointNumEmbeddings[standpointNum][2])[0][0]), 4))
-        responseDict['similarityColumn4'].append(round(float(util.cos_sim(responseEmbeddings, summsStandpointNumEmbeddings[standpointNum][3])[0][0]), 4))
-        responseDict['similarityColumn5'].append(round(float(util.cos_sim(responseEmbeddings, summsStandpointNumEmbeddings[standpointNum][4])[0][0]), 4))
+        if len(summsStandpointNumEmbeddings[standpointNum]) >2:
+            responseDict['similarityColumn3'].append(round(float(util.cos_sim(responseEmbeddings, summsStandpointNumEmbeddings[standpointNum][2])[0][0]), 4))
+        else:
+            responseDict['similarityColumn3'].append(0)
+        if len(summsStandpointNumEmbeddings[standpointNum]) >3:
+            responseDict['similarityColumn4'].append(round(float(util.cos_sim(responseEmbeddings, summsStandpointNumEmbeddings[standpointNum][3])[0][0]), 4))
+        else:
+            responseDict['similarityColumn4'].append(0)
+        if len(summsStandpointNumEmbeddings[standpointNum]) == 5:
+            responseDict['similarityColumn5'].append(round(float(util.cos_sim(responseEmbeddings, summsStandpointNumEmbeddings[standpointNum][4])[0][0]), 4))
+        else:
+            responseDict['similarityColumn5'].append(0)
 
     # Format everything as a dataframe and save to .csv
-    filename = os.getcwd() + '\\Results\\trial_id_8847511010\\ResponsesDF_similarities_n0.csv'
+    filename = os.getcwd() + '\\Results\\trial_id_8323757419\\ResponsesDF_similarities_n0.csv'
     print('Saving results to file:', filename)
     df = pd.DataFrame(responseDict)
     df.to_csv(filename, index=False)
-    print('Done.')
 
 
 def main():
     print('=='*40)
     print('Starting simulated analysis...')
     AnalyzeSimulated()
+    print('Done.')
 
 if __name__ == '__main__':
     main()
