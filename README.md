@@ -100,7 +100,11 @@ The following packages are required in order to run the scripts in this reposito
 - Groq from groq
 - load_dataset from datasets
 
-Not every package is required for every script. If you want to minimize installations, you can examine the packages that are loaded in the script you wish to run. If you have any issues running this repository, please email Kevin Esterling <kevin.esterling@ucr.edu>
+Not every package is required for every script. If you want to minimize installations, you can examine the packages that are loaded in the script you wish to run. If you have any issues running this repository, please email Kevin Esterling <kevin.esterling@ucr.edu>.
+
+## Contributing to the repository
+
+This project is fully open source and we welcome contributors. For contributor instructions please email Kevin Esterling <kevin.esterling@ucr.edu>.
 
 ## References
 
