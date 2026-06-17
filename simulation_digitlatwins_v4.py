@@ -1,5 +1,5 @@
 """
-simulation_digitaltwins_v3.py
+simulation_digitaltwins_v4.py
 =============================================================
 Focus-group simulation using LLM "digital twin" agents.
 
@@ -1052,7 +1052,7 @@ def main() -> None:
     cfg = ExperimentConfig(
         models=[
             'gemini-3-flash-preview',
-            'llama-3.3-70b-versatile',
+            'meta-llama/llama-4-scout-17b-16e-instruct',
             'qwen/qwen3-32b',
             'openai/gpt-oss-120b',
         ],
@@ -1110,12 +1110,12 @@ def main() -> None:
         #     'That is, liberals favor making gun control laws more strict and conservatives '
         #     'to keep the laws the same or make them less strict.'
         # ),
-        sample_size=6,    # Agents per run; must not exceed rows in personalities file.
+        sample_size=10,    # Agents per run; must not exceed rows in personalities file.
         strat=False, # set to True for stratfied sampling. If True, then edit the next two lines.
         strat_key='politics',  # if strat=False, it doesn't matter what is in strat_key, strat_a or strat_b
         strat_a=['Liberal', 'Very liberal'],  # set this to your A stratification cell
         strat_b=['Conservative', 'Very conservative'], # set this to your B stratification cel
-        num_runs=50,        # Runs per experiment (50-100 traditional, 10-20 Prytaneum).
+        num_runs=1,        # Runs per experiment (50-100 traditional, 10-20 Prytaneum).
         save_to_file=True,
         save_similarities_to_file=True,
         force=False,       # Set True to bypass caching and always make fresh API calls.

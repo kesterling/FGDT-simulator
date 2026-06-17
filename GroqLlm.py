@@ -10,7 +10,7 @@ def InitGroq():
     os.environ['GROQ_API_KEY'] = apikey
 
 
-def AskGroq(prompt: str, model='llama-3.3-70b-versatile', max_output_tokens=1024, force=False, temperature=0.5) -> str:
+def AskGroq(prompt: str, model='meta-llama/llama-4-scout-17b-16e-instruct', max_output_tokens=1024, force=False, temperature=0.5) -> str:
     """Ask a prompt to the given LLM model and return the result.
     All available models found at: https://console.groq.com/docs/models.
     NOTE: Must run InitGroq() beforehand.
@@ -56,7 +56,7 @@ def AskGroq(prompt: str, model='llama-3.3-70b-versatile', max_output_tokens=1024
 def main():
     "Test the functionality of Groq LLMs"
     # Create a prompt to ask a Groq LLM
-    model = 'gemma2-9b-it'
+    model = 'meta-llama/llama-4-scout-17b-16e-instruct'
     prompt = 'What is the difference between a circle and a sphere?'
 
     # Initialize Groq
