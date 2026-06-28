@@ -30,7 +30,7 @@ The Python script "simulation_digitaltwins_v4.py" runs the main simulator. To ru
 - *standpoint_options:* a list of closed-ended survey standpoint options related to the topic 
 - *background:* a string providing the LLM any background information relevant to the topic
 - *sample_size:* an integer setting the sample size of LLM agents for each trial
-- *strat:* # set to True for stratfied sampling. If True, then edit the next two lines.
+- *strat:* set to True for stratfied sampling. If True, then edit the next two lines.
 - *strat_key:* choose a stratifying covariate cov_key, if strat=False, it doesn't matter what is in strat_key, strat_a or strat_b
 - *strat_a:* set this to your A stratification cell values (can be a list with string entries)
 - *strat_b:* set this to your B stratification cell values (can be a list with string entries)
