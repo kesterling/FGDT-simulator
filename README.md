@@ -31,9 +31,9 @@ The Python script "simulation_digitaltwins_v4.py" runs the main simulator. To ru
 - *background:* a string providing the LLM any background information relevant to the topic
 - *sample_size:* an integer setting the sample size of LLM agents for each trial
 - *strat:* set to False for simple random sampling; set to True for stratfied sampling. If True, then edit the next two lines.
-- *strat_key:* choose a stratifying covariate cov_key, if strat=False, it doesn't matter what is in strat_key, strat_a or strat_b
-- *strat_a:* set this to your A stratification cell values (a list with one or more string entries)
-- *strat_b:* set this to your B stratification cell values (a list with one or more string entries)
+- *strat_key:* choose a stratifying covariate cov_key; in v4 this is limited to the demo covariates. If strat=False, it doesn't matter what is in strat_key, strat_a or strat_b
+- *strat_a:* set this to your A stratification covariate cell values (a list with one or more string entries)
+- *strat_b:* set this to your B stratification covariate cell values (a list with one or more string entries)
 - *num_runs:* an integer setting the number of trials per experiment; usually 50 small-N and 10-20 for large-N
 - *save_to_file:* set to True to save the results of each experiment run to file; keep as True unless testing
 - *save_similarities_to_file:* set to True to save the final cosine similarities to file; keep as True unless testing
