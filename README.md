@@ -73,8 +73,8 @@ We provide the data and code to use our simulation output in order to reproduce 
 
 The files in the respository are as follows:
 
-- "simulation_digitaltwins_v4.py" is the main simulator file
-- "simulation_digitaltwins_v3.py" is the archived version -- models not updated (!)
+- "simulation_digitaltwins_v4.py" is the main simulator file 
+- "simulation_digitaltwins_v2.py" is the original human-written version -- models not updated (!)
 - "DigitalTwin example.txt" is the Toubia (2025) database codebook indicating covariates and their keys
 - "GoogleGemini.py" and "GroqLlm.py" call the LLMs
 - "digitaltwins_promptblocks.py" is the module containing the prompt blocks for the digital twin covariates
